@@ -6,6 +6,9 @@ ohos {
     defaultConfig {
         compatibleSdkVersion 5
     }
+    compileOptions{ //配置参数打开注解处理器
+        annotationEnabled true
+    }
     buildTypes {
         release {
             proguardOpt {
@@ -20,6 +23,11 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.har'])
     testImplementation 'junit:junit:4.13.1'
     ohosTestImplementation 'com.huawei.ohos.testkit:runner:2.0.0.400'
+    //添加相关的架包的依赖()
+    compile files("C:\\Users\\Yuay\\AppData\\Local\\Huawei\\Sdk\\hmscore\\2.1.0\\java\\api\\ohos.jar","C:\\Users\\Yuay\\AppData\\Local\\Huawei\\Sdk\\hmscore\\2.1.0\\java\\build-tools\\lib\\orm_annotations_java.jar",
+            "C:\\Users\\Yuay\\AppData\\Local\\Huawei\\Sdk\\hmscore\\2.1.0\\java\\build-tools\\lib\\orm_annotations_processor_java.jar","C:\\Users\\Yuay\\AppData\\Local\\Huawei\\Sdk\\hmscore\\2.1.0\\java\\build-tools\\lib\\javapoet_java.jar")
+    annotationProcessor files("C:\\Users\\Yuay\\AppData\\Local\\Huawei\\Sdk\\hmscore\\2.1.0\\java\\build-tools\\lib\\orm_annotations_java.jar",
+            "C:\\Users\\Yuay\\AppData\\Local\\Huawei\\Sdk\\hmscore\\2.1.0\\java\\build-tools\\lib\\orm_annotations_processor_java.jar","C:\\Users\\Yuay\\AppData\\Local\\Huawei\\Sdk\\hmscore\\2.1.0\\java\\build-tools\\lib\\javapoet_java.jar")
 }
 decc {
     supportType = ['html', 'xml']
