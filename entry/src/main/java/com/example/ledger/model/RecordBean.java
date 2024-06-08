@@ -51,7 +51,7 @@ public class RecordBean extends OrmObject {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         return sdf.format(calendar.getTime());
     }
-    
+
     /**
      * 获取记账时间
      * 
