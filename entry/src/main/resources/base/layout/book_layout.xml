@@ -28,6 +28,7 @@
             ohos:text_color="#A8FFFFFF"
             />
         <Text
+            ohos:id="$+id:balance_text"
             ohos:text="-8.00"
             ohos:text_size="40fp"
             ohos:left_margin="15vp"

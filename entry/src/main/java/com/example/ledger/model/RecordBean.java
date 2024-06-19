@@ -4,8 +4,7 @@ import ohos.data.orm.OrmObject;
 import ohos.data.orm.annotation.Entity;
 import ohos.data.orm.annotation.PrimaryKey;
 import ohos.global.icu.text.SimpleDateFormat;
-
-import java.util.Calendar;
+import ohos.global.icu.util.Calendar;
 
 
 @Entity(tableName = "record")
@@ -37,14 +36,14 @@ public class RecordBean extends OrmObject {
         this.year = date.get(Calendar.YEAR);
         this.month = date.get(Calendar.MONTH);
         this.day = date.get(Calendar.DAY_OF_MONTH);
-        
+        // this.time = time
     }
 
     /**
      * 获取记录的创建时间
      *
      */
-    public String getCalendar() {
+    public String getCreateTime() {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(this.id);
 
@@ -65,6 +64,18 @@ public class RecordBean extends OrmObject {
        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年-MM月-dd日 HH:mm:ss");
        
        return sdf.format(calendar.getTime());
+    }
+
+    /**
+     * 获取简易记账时间
+     *
+     * */
+    public String getRecordSimpleTime(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(this.time);
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
+
+        return sdf.format(calendar.getTime());
     }
 
     public RecordBean() {
@@ -114,6 +125,7 @@ public class RecordBean extends OrmObject {
     public long getTime() {
         return time;
     }
+
 
     public void setTime(long time) {
         this.time = time;

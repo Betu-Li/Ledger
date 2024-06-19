@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DirectionalLayout
+    xmlns:ohos="http://schemas.huawei.com/res/ohos"
+    ohos:height="match_content"
+    ohos:width="match_parent"
+    ohos:orientation="vertical">
+
+    <Image
+        ohos:height="150fp"
+        ohos:width="150fp"
+        ohos:layout_alignment="center"
+        ohos:scale_mode="stretch"
+        ohos:image_src="$media:sr"
+        ohos:id="$+id:icon_image"
+        />
+
+    <DirectionalLayout
+        ohos:height="match_content"
+        ohos:left_margin="30fp"
+        ohos:width="match_parent"
+        ohos:orientation="horizontal">
+
+        
+        <DirectionalLayout
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:orientation="horizontal"
+            ohos:top_margin="20fp"
+            ohos:padding="10fp">
+
+            <Image
+                ohos:height="20fp"
+                ohos:width="20fp"
+                ohos:image_src="$media:jr"/>
+            <Text
+                ohos:id="$+id:money_text"
+                ohos:text="50.00"
+                ohos:text_size="20fp"
+                ohos:text_color="#000000"/>
+
+        </DirectionalLayout>
+
+        
+        <DirectionalLayout
+            ohos:height="match_content"
+            ohos:width="match_parent"
+            ohos:orientation="horizontal"
+            ohos:top_margin="20fp"
+            ohos:padding="10fp">
+
+            <Image
+                ohos:image_src="$media:fl"/>
+            <Text
+                ohos:id="$+id:cate_text"
+                ohos:text="50.00"
+                ohos:text_size="20fp"
+                ohos:text_color="#000000"/>
+
+        </DirectionalLayout>
+
+        <!-- 添加了一些样式和间距 -->
+        <DirectionalLayout
+            ohos:height="match_content"
+            ohos:width="match_parent"
+            ohos:orientation="horizontal"
+            ohos:top_margin="20fp"
+            ohos:padding="10fp">
+
+            <Image
+                ohos:image_src="$media:sj"/>
+            <Text
+                ohos:id="$+id:time_text"
+                ohos:text="12：31"
+                ohos:text_size="20fp"
+                ohos:text_color="#000000"/>
+
+        </DirectionalLayout>
+
+
+        <DirectionalLayout
+            ohos:height="match_content"
+            ohos:width="match_content"
+            ohos:orientation="horizontal"
+            ohos:top_margin="20fp"
+            ohos:padding="10fp">
+
+            <Image
+                ohos:image_src="$media:memo"/>
+            <Text
+                ohos:id="$+id:memo_text"
+                ohos:text="50.00"
+                ohos:text_size="20fp"
+                ohos:text_color="#000000"/>
+
+        </DirectionalLayout>
+
+    </DirectionalLayout>
+
+
+    <DirectionalLayout
+        ohos:height="match_content"
+        ohos:width="match_parent"
+        ohos:orientation="horizontal"
+        ohos:layout_alignment="center"
+        ohos:padding="20fp">
+
+        <Button
+            ohos:id="$+id:btn_ok"
+            ohos:height="40fp"
+            ohos:width="100fp"
+            ohos:text="确定"
+            ohos:text_size="20fp"
+            ohos:text_color="#FFFFFF"
+            ohos:background_element="#000000"/>
+
+        <Button
+            ohos:id="$+id:btn_delete"
+            ohos:height="40fp"
+            ohos:width="100fp"
+            ohos:text="删除"
+            ohos:text_size="20fp"
+            ohos:text_color="#FFFFFF"
+            ohos:background_element="#000000"
+            ohos:left_margin="20fp"/>
+
+    </DirectionalLayout>
+
+</DirectionalLayout>
