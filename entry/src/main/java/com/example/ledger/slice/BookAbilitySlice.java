@@ -17,6 +17,7 @@ import ohos.data.orm.OrmPredicates;
 import ohos.global.icu.text.SimpleDateFormat;
 import ohos.global.icu.util.Calendar;
 import ohos.hiviewdfx.HiLog;
+import ohos.hiviewdfx.HiLogLabel;
 
 
 import java.util.List;
@@ -223,9 +224,11 @@ public class BookAbilitySlice extends AbilitySlice {
         btn_delete.setClickedListener(new Component.ClickedListener() {
             @Override
             public void onClick(Component component) {
-                // 删除记录
 
                 deleteRecordByID(bean.getId());
+
+                reloadRecord();
+
                 cd.destroy();
             }
         });
@@ -252,6 +255,7 @@ public class BookAbilitySlice extends AbilitySlice {
         if(recordList.size() == 0){// 查询不到记录就直接返回
             ormContext.flush();
             ormContext.close();
+
             return;
         }
 

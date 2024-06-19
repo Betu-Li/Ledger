@@ -16,6 +16,7 @@ public class RecordBean extends OrmObject {
 
     @PrimaryKey(autoGenerate = true) // 主键自增
     private long id;
+    
     private String kind;// 收入/支出 种类
     private String cateItem;// 细分种类
     private double money;// 金额
