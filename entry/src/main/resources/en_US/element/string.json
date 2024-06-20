@@ -15,6 +15,22 @@
     {
       "name": "dataability_description",
       "value": "hap sample empty provider"
+    },
+    {
+      "name": "pageability_description",
+      "value": "Java_Empty Ability"
+    },
+    {
+      "name": "pageability_HelloWorld",
+      "value": "Hello World"
+    },
+    {
+      "name": "entry_PageAbility",
+      "value": "entry_PageAbility"
+    },
+    {
+      "name": "serviceability_description",
+      "value": "hap sample empty service"
     }
   ]
 }

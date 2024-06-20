@@ -27,7 +27,7 @@ public class DataAbility extends Ability {
                     "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                     "year TEXT , month TEXT , day TEXT ," +
                     "time TEXT ," +
-                    "amount REAL not null," +
+                    "amount DOUBLE not null," +
                     "type TEXT not null," +
                     "category TEXT not null)");
         }

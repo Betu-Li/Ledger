@@ -46,6 +46,18 @@
         "orientation": "unspecified",
         "visible": true,
         "type": "page"
+      },
+      {
+        "name": "com.example.ledger.DataAbility",
+        "description": "$string:dataability_description",
+        "type": "data",
+        "uri": "dataability://com.example.ledger.DataAbility",
+        "icon": "$media:icon"
+      }
+    ],
+    "defPermissions": [
+      {
+        "name": "com.example.ledger.DataAbilityShellProvider.PROVIDER"
       }
     ]
   }
