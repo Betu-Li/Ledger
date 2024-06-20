@@ -261,8 +261,8 @@ public class BookSlice extends ohos.aafwk.ability.AbilitySlice {
         Text time_text = (Text) dl.findComponentById(ResourceTable.Id_time_text);
         time_text.setText(record.getDate()+' '+record.getTime());
 
-        Text memo_text = (Text) dl.findComponentById(ResourceTable.Id_memo_text);
-        memo_text.setText("未设置");
+//        Text memo_text = (Text) dl.findComponentById(ResourceTable.Id_memo_text);
+//        memo_text.setText("未设置");
 
         Button btn_ok = (Button) dl.findComponentById(ResourceTable.Id_btn_ok);
 

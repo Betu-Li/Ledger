@@ -37,19 +37,19 @@
         ohos:text_size="12fp"
         />
 
-    <Text
-        ohos:id="$+id:memo"
-        ohos:height="match_content"
-        ohos:width="match_content"
-        ohos:align_parent_bottom="true"
-        ohos:bottom_margin="3vp"
-        ohos:right_of="$id:record_time"
+<!--    <Text-->
+<!--        ohos:id="$+id:memo"-->
+<!--        ohos:height="match_content"-->
+<!--        ohos:width="match_content"-->
+<!--        ohos:align_parent_bottom="true"-->
+<!--        ohos:bottom_margin="3vp"-->
+<!--        ohos:right_of="$id:record_time"-->
 
-        ohos:left_margin="10fp"
-        ohos:text="南区食堂2楼"
-        ohos:text_color="#8B8A87"
-        ohos:text_size="12fp"
-        />
+<!--        ohos:left_margin="10fp"-->
+<!--        ohos:text="南区食堂2楼"-->
+<!--        ohos:text_color="#8B8A87"-->
+<!--        ohos:text_size="12fp"-->
+<!--        />-->
 
     <Text
         ohos:id="$+id:money"
