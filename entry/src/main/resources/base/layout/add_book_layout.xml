@@ -83,32 +83,32 @@
             ohos:layout_alignment="horizontal_center"
             />
 
-        <DirectionalLayout
-            ohos:height="match_content"
-            ohos:width="match_parent"
-            ohos:layout_alignment="bottom"
-            ohos:orientation="horizontal"
-            ohos:alignment="horizontal_center"
-            ohos:bottom_margin="10fp"
-            >
-            <Button
-                ohos:height="30fp"
-                ohos:width="200fp"
-                ohos:text_size="20fp"
-                ohos:text="保存"
-                ohos:background_element="#F5A623"
-                ohos:text_color="#ffffff"
-                ohos:id="$+id:save2_btn"/>
-            <Button
-                ohos:height="30fp"
-                ohos:width="100fp"
-                ohos:text_size="20fp"
-                ohos:left_margin="10fp"
-                ohos:text="再记一笔"
-                ohos:background_element="#ECECEE"
-                ohos:text_color="#8B8B8A"
-                ohos:id="$+id:add_record_btn"/>
-        </DirectionalLayout>
+<!--        <DirectionalLayout-->
+<!--            ohos:height="match_content"-->
+<!--            ohos:width="match_parent"-->
+<!--            ohos:layout_alignment="bottom"-->
+<!--            ohos:orientation="horizontal"-->
+<!--            ohos:alignment="horizontal_center"-->
+<!--            ohos:bottom_margin="10fp"-->
+<!--            >-->
+<!--            <Button-->
+<!--                ohos:height="30fp"-->
+<!--                ohos:width="200fp"-->
+<!--                ohos:text_size="20fp"-->
+<!--                ohos:text="保存"-->
+<!--                ohos:background_element="#F5A623"-->
+<!--                ohos:text_color="#ffffff"-->
+<!--                ohos:id="$+id:save2_btn"/>-->
+<!--            <Button-->
+<!--                ohos:height="30fp"-->
+<!--                ohos:width="100fp"-->
+<!--                ohos:text_size="20fp"-->
+<!--                ohos:left_margin="10fp"-->
+<!--                ohos:text="再记一笔"-->
+<!--                ohos:background_element="#ECECEE"-->
+<!--                ohos:text_color="#8B8B8A"-->
+<!--                ohos:id="$+id:add_record_btn"/>-->
+<!--        </DirectionalLayout>-->
 
     </StackLayout>
 

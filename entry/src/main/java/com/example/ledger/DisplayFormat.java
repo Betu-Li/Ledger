@@ -11,9 +11,8 @@ public class DisplayFormat {
       * @return 
     */
    public static int getIconID (String cateItem){
-      String bigcate = cateItem.split(">")[0];// 获取大类
       int iconid = 0;
-      switch (bigcate){
+      switch (cateItem){
          case "食品酒水":
             iconid = ResourceTable.Media_ys;
             break;
@@ -28,6 +27,8 @@ public class DisplayFormat {
             break;
          case "收入":
             iconid = ResourceTable.Media_sr;
+         case "生活费":
+            iconid = ResourceTable.Media_shf;
       }
       return iconid;
    }
@@ -70,6 +71,5 @@ public class DisplayFormat {
       }
          
    }
-
 
 }

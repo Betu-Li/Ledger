@@ -4,6 +4,7 @@ import com.example.ledger.DisplayFormat;
 import com.example.ledger.ResourceTable;
 import com.example.ledger.model.Record;
 import com.example.ledger.provider.RecordProvider;
+import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.ability.DataAbilityHelper;
 import ohos.aafwk.ability.DataAbilityRemoteException;
 import ohos.aafwk.content.Intent;
@@ -26,7 +27,7 @@ import static ohos.agp.components.ComponentContainer.LayoutConfig.MATCH_CONTENT;
 import static ohos.agp.components.ComponentContainer.LayoutConfig.MATCH_PARENT;
 
 
-public class AbilitySlice extends ohos.aafwk.ability.AbilitySlice {
+public class BookSlice extends ohos.aafwk.ability.AbilitySlice {
 
     Uri uri = Uri.parse("dataability:///com.example.ledger.DataAbility/record");
     private DataAbilityHelper dataAbilityHelper;
@@ -51,7 +52,7 @@ public class AbilitySlice extends ohos.aafwk.ability.AbilitySlice {
         super.onStart(intent);
         super.setUIContent(ResourceTable.Layout_book_layout);
 
-        addTestData();// 向数据库随机添加一些记录
+        //addTestData();// 向数据库随机添加一些记录
 
         calendar = Calendar.getInstance();// 获取系统当前时间
 
@@ -186,7 +187,7 @@ public class AbilitySlice extends ohos.aafwk.ability.AbilitySlice {
         String testTime1 = "09:00:00";
         double testAmount1 = 100.0;
         String testType1 = "income";
-        String testCategory1 = "Salary";
+        String testCategory1 = "生活费";
         Record testRecord1 = new Record(testDate1, testTime1, testAmount1, testType1, testCategory1);
         insertRecord(testRecord1);
 
@@ -194,7 +195,7 @@ public class AbilitySlice extends ohos.aafwk.ability.AbilitySlice {
         String testTime2 = "14:30:00";
         double testAmount2 = 50.0;
         String testType2 = "expense";
-        String testCategory2 = "Food";
+        String testCategory2 = "食品酒水";
         Record testRecord2 = new Record(testDate2, testTime2, testAmount2, testType2, testCategory2);
         insertRecord(testRecord2);
 
@@ -202,7 +203,7 @@ public class AbilitySlice extends ohos.aafwk.ability.AbilitySlice {
         String testTime3 = "18:45:00";
         double testAmount3 = 200.0;
         String testType3 = "income";
-        String testCategory3 = "Gift";
+        String testCategory3 = "收入";
         Record testRecord3 = new Record(testDate3, testTime3, testAmount3, testType3, testCategory3);
         insertRecord(testRecord3);
 
@@ -224,9 +225,9 @@ public class AbilitySlice extends ohos.aafwk.ability.AbilitySlice {
         values.putString("category", record.getCategory());
         try{
             int result = dataAbilityHelper.insert(uri, values);
-            new ToastDialog(this).setText("插入结果成功！" ).show();
+            //new ToastDialog(this).setText("插入结果成功！" ).show();
         }catch(DataAbilityRemoteException e){
-            new ToastDialog(this).setText("插入结果失败！" ).show();
+            //new ToastDialog(this).setText("插入结果失败！" ).show();
             e.printStackTrace();
         }
     }
@@ -297,9 +298,9 @@ public class AbilitySlice extends ohos.aafwk.ability.AbilitySlice {
         add_record_btn.setClickedListener(new Component.ClickedListener() {
             @Override
             public void onClick(Component component) {
-//                AbilitySlice slice = new AddBookSlice();
-//                Intent intent = new Intent();
-//                present(slice,intent);
+               AbilitySlice slice = new AddBookSlice();
+               Intent intent = new Intent();
+               present(slice,intent);
 
             }
         });
@@ -376,6 +377,5 @@ public class AbilitySlice extends ohos.aafwk.ability.AbilitySlice {
         String day=date.split("-")[2];
         return new String[]{year, month, day};
     }
-
 
 }
