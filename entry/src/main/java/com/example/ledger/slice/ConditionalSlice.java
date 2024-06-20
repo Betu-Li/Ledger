@@ -41,6 +41,8 @@ public class ConditionalSlice extends AbilitySlice {
     private ListContainer curDayRecordContainer; //记录列表
 
     int Index = 0;//页面序号
+    String date; //保存查询时间
+
 
 
     @Override
@@ -64,7 +66,60 @@ public class ConditionalSlice extends AbilitySlice {
                 }else{
                     Index =0;
                 }
+                date = new SimpleDateFormat("yyyy-MM").format(new Date());
                 reloadRecord(Index);
+
+            }
+        });
+        conditional_year_month.setClickedListener(new Component.ClickedListener() {
+            @Override
+            public void onClick(Component component) {
+                CommonDialog cd =new CommonDialog(getContext());
+                cd.setCornerRadius(50);
+
+                // 绑定layout文件
+                DirectionalLayout dl;
+                if(Index == 0){
+                    dl=(DirectionalLayout) LayoutScatter.getInstance(getContext()).parse(ResourceTable.Layout_month_layout,null,false);
+                }else{
+                    dl=(DirectionalLayout) LayoutScatter.getInstance(getContext()).parse(ResourceTable.Layout_year_layout,null,false);
+                }
+
+
+                //设置picker
+                DatePicker datePicker =(DatePicker) dl.findComponentById(ResourceTable.Id_date_picker);
+                datePicker.setWheelModeEnabled(true);//可滑动
+
+                Button btn_cancel =(Button) dl.findComponentById(ResourceTable.Id_calender_cancel);
+                btn_cancel.setClickedListener(new Component.ClickedListener() {
+                    @Override
+                    public void onClick(Component component) {
+                        cd.destroy();
+                    }
+                });
+                Button btn_ok = (Button) dl.findComponentById(ResourceTable.Id_calender_ok);
+                btn_ok.setClickedListener(new Component.ClickedListener() {
+                    @Override
+                    public void onClick(Component component) {
+                        int year = datePicker.getYear();
+                        int month = 11;
+                        if (Index ==0) {
+                            month = datePicker.getMonth();
+                            conditional_year_month.setText(year+"年"+month+"月");
+                        }else{
+                            conditional_year_month.setText(year+"年");
+                        }
+                        date = String.format("%04d-%02d", year, month);
+
+                        reloadRecord(Index);
+
+                        cd.destroy();
+                    }
+                });
+                cd.setSize(MATCH_PARENT,MATCH_CONTENT);
+                cd.setContentCustomComponent(dl);
+                cd.setAlignment(LayoutAlignment.BOTTOM);
+                cd.show();
             }
         });
     }
@@ -81,6 +136,7 @@ public class ConditionalSlice extends AbilitySlice {
         conditional_year_month = (Text) findComponentById(ResourceTable.Id_conditional_year_month);
         curDayRecordContainer = (ListContainer) findComponentById(ResourceTable.Id_record_ListContainer) ;
 
+        date = new SimpleDateFormat("yyyy-MM").format(new Date());//获取当前月份//初始化时设置为今本月
         // 刷新页面
         reloadRecord(Index);
     }
@@ -90,16 +146,14 @@ public class ConditionalSlice extends AbilitySlice {
      */
     private void reloadRecord(int i){
         if(i ==0){
-            String date = new SimpleDateFormat("yyyy-MM").format(new Date());//获取当前月份
             List<Record> records = getRecordsByMonth(date);//查询当月的记录
-
             double[] result = calculateMonth(date);// 计算当月结余情况
             InputText.setText("" + result[0]);
             OutputText.setText("" + result[1]);
             BalanceText.setText("" + result[2]);
 
             String[] dates=splitDate(date);
-            conditional_text.setText("本月记录：");
+            conditional_text.setText("按月记录：");
             conditional_year_month.setText(dates[0]+"年"+dates[1]+"月");
 
 
@@ -116,7 +170,6 @@ public class ConditionalSlice extends AbilitySlice {
             curDayRecordContainer.setItemProvider(provider);
 
         }else{
-            String date = new SimpleDateFormat("yyyy").format(new Date());
             List<Record> records = getRecordsByYear(date);
             //查询今年的记录
             double[] result = calculateYear(date);
@@ -124,8 +177,9 @@ public class ConditionalSlice extends AbilitySlice {
             OutputText.setText("" + result[1]);
             BalanceText.setText("" + result[2]);
 
-            conditional_text.setText("今年记录：");
-            conditional_year_month.setText(date+"年");
+            conditional_text.setText("按年记录：");
+            String[] dates=splitDate(date);
+            conditional_year_month.setText(dates[0]+"年");
 
             //设置列表点击事件
             RecordProvider provider = new RecordProvider(records,this);
@@ -228,7 +282,9 @@ public class ConditionalSlice extends AbilitySlice {
         predicates = new DataAbilityPredicates();
         dataAbilityHelper = DataAbilityHelper.creator(this);
 
-        predicates.equalTo("year",date);
+        String[] dates=splitDate(date);
+        predicates.equalTo("year",dates[0]);
+
         try{
             ResultSet resultSet = dataAbilityHelper.query(uri, columns, predicates);
             while (resultSet.goToNextRow()) {
