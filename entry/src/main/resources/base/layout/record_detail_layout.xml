@@ -74,8 +74,8 @@
             ohos:width="100fp"
             ohos:text="确定"
             ohos:text_size="20fp"
-            ohos:text_color="#FFFFFF"
-            ohos:background_element="#000000"/>
+            ohos:background_element="#F5A623"
+            ohos:text_color="#ffffff"/>
 
         <Button
             ohos:id="$+id:btn_delete"
@@ -83,8 +83,8 @@
             ohos:width="100fp"
             ohos:text="删除"
             ohos:text_size="20fp"
-            ohos:text_color="#FFFFFF"
-            ohos:background_element="#000000"
+            ohos:background_element="#ECECEE"
+            ohos:text_color="#8B8B8A"
             ohos:left_margin="20fp"/>
 
     </DirectionalLayout>
