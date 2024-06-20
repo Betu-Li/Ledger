@@ -27,7 +27,7 @@ import static ohos.agp.components.ComponentContainer.LayoutConfig.MATCH_CONTENT;
 import static ohos.agp.components.ComponentContainer.LayoutConfig.MATCH_PARENT;
 
 
-public class BookSlice extends ohos.aafwk.ability.AbilitySlice {
+public class BookSlice extends AbilitySlice {
 
     Uri uri = Uri.parse("dataability:///com.example.ledger.DataAbility/record");
     private DataAbilityHelper dataAbilityHelper;
@@ -327,10 +327,10 @@ public class BookSlice extends ohos.aafwk.ability.AbilitySlice {
                 count_image.setClickedListener(new Component.ClickedListener() {
                     @Override
                     public void onClick(Component component) {
-//                        AbilitySlice slice = new ViewByTimeSlice();
-//                        Intent intent = new Intent();
-//                        present(slice,intent);
-//                        cd.destroy();
+                        AbilitySlice slice = new ConditionalSlice();
+                        Intent intent = new Intent();
+                        present(slice,intent);
+                        cd.destroy();
                     }
                 });
 

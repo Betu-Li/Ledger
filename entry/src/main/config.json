@@ -53,6 +53,13 @@
         "type": "data",
         "uri": "dataability://com.example.ledger.DataAbility",
         "icon": "$media:icon"
+      },
+      {
+        "name": "com.example.ledger.slice.ConditionalSlice",
+        "description": "$string:serviceability_description",
+        "type": "service",
+        "backgroundModes": [],
+        "icon": "$media:icon"
       }
     ],
     "defPermissions": [

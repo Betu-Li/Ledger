@@ -60,7 +60,6 @@ public class AddBookSlice extends AbilitySlice {
     /**
      * 按钮响应事件
      */
-
     private void addListener() {
         save_btn1.setClickedListener(new Component.ClickedListener() {
             @Override
@@ -70,9 +69,9 @@ public class AddBookSlice extends AbilitySlice {
                 int minute = datetime.get(Calendar.MINUTE);
                 int second = datetime.get(Calendar.SECOND);
                 String date = new SimpleDateFormat("yyyy-MM-dd").format(datetime);
-
                 String time = hour+ ":" + minute + ":" + second;
                 Record record = new Record(date,time,money,type,cateItem);
+
                 insertRecord(record);
             }
         });
@@ -186,7 +185,9 @@ public class AddBookSlice extends AbilitySlice {
     public void setCateItem(String cateItem) {
         this.cateItem = cateItem;
     }
-
+    public void setDatetime(Calendar datetime) {
+        this.datetime = datetime;
+    }
 
 }
 

@@ -215,14 +215,15 @@ public class PageProvider extends PageSliderProvider {
                 btn_ok.setClickedListener(new Component.ClickedListener() {
                     @Override
                     public void onClick(Component component) {
+                        int year = datePicker.getYear();
                         int day = datePicker.getDayOfMonth();
                         int month = datePicker.getMonth()-1;
-                        int year = datePicker.getYear();
                         int hour = timePicker.getHour();
                         int minute = timePicker.getMinute();
                         int second = timePicker.getSecond();
                         todayCalender.set(year,month,day,hour,minute,second);
                         calenderText.setText(sdf.format(todayCalender));
+                        slice.setDatetime(todayCalender);
                         
                         cd.destroy();
                     }

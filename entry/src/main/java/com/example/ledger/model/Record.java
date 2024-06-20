@@ -31,6 +31,9 @@ public class Record {
         this.type = type;
         this.category = category;
     }
+    public Record(){
+
+    }
 
 
 
