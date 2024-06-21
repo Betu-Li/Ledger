@@ -207,6 +207,22 @@ public class BookSlice extends AbilitySlice {
         Record testRecord3 = new Record(testDate3, testTime3, testAmount3, testType3, testCategory3);
         insertRecord(testRecord3);
 
+
+        String testDate4 = "2023-06-20";
+        String testTime4 = "18:45:00";
+        double testAmount4 = 200.0;
+        String testType4 = "income";
+        String testCategory4 = "收入";
+        Record testRecord4 = new Record(testDate4, testTime4, testAmount4, testType4, testCategory4);
+        insertRecord(testRecord4);
+
+        String testDate5 = "2024-05-21";
+        String testTime5 = "18:45:00";
+        double testAmount5 = 200.0;
+        String testType5 = "income";
+        String testCategory5 = "收入";
+        Record testRecord5 = new Record(testDate5, testTime5, testAmount5, testType5, testCategory5);
+        insertRecord(testRecord5);
     }
 
     /**
