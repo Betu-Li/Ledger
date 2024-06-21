@@ -4,6 +4,7 @@ import com.example.ledger.DisplayFormat;
 import com.example.ledger.ResourceTable;
 import com.example.ledger.model.Record;
 import com.example.ledger.provider.RecordProvider;
+
 import ohos.aafwk.ability.AbilitySlice;
 import ohos.aafwk.ability.DataAbilityHelper;
 import ohos.aafwk.ability.DataAbilityRemoteException;
@@ -145,8 +146,9 @@ public class ConditionalSlice extends AbilitySlice {
      * 刷新记录
      */
     private void reloadRecord(int i){
+        List<Record> records;
         if(i ==0){
-            List<Record> records = getRecordsByMonth(date);//查询当月的记录
+            records = getRecordsByMonth(date);//查询当月的记录
             double[] result = calculateMonth(date);// 计算当月结余情况
             InputText.setText("" + result[0]);
             OutputText.setText("" + result[1]);
@@ -156,21 +158,8 @@ public class ConditionalSlice extends AbilitySlice {
             conditional_text.setText("按月记录：");
             conditional_year_month.setText(dates[0]+"年"+dates[1]+"月");
 
-
-            //设置列表点击事件
-            RecordProvider provider = new RecordProvider(records,this);
-            provider.setListener(new RecordProvider.ItemListener() {
-                @Override
-                public void click(int i, Record record) {
-                    ShowRecordDetail(record);
-                }
-            });
-
-            // 设置数据提供
-            curDayRecordContainer.setItemProvider(provider);
-
         }else{
-            List<Record> records = getRecordsByYear(date);
+            records = getRecordsByYear(date);
             //查询今年的记录
             double[] result = calculateYear(date);
             InputText.setText("" + result[0]);
@@ -181,19 +170,19 @@ public class ConditionalSlice extends AbilitySlice {
             String[] dates=splitDate(date);
             conditional_year_month.setText(dates[0]+"年");
 
-            //设置列表点击事件
-            RecordProvider provider = new RecordProvider(records,this);
-            provider.setListener(new RecordProvider.ItemListener() {
-                @Override
-                public void click(int i, Record record) {
-                    ShowRecordDetail(record);
-                }
-            });
-
-            // 设置数据提供
-            curDayRecordContainer.setItemProvider(provider);
         }
 
+        //设置列表点击事件
+        RecordProvider provider = new RecordProvider(records,this);
+        provider.setListener(new RecordProvider.ItemListener() {
+            @Override
+            public void click(int i, Record record) {
+                ShowRecordDetail(record);
+            }
+        });
+
+        // 设置数据提供
+        curDayRecordContainer.setItemProvider(provider);
 
 
 
