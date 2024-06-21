@@ -10,6 +10,7 @@ import ohos.aafwk.ability.DataAbilityRemoteException;
 import ohos.aafwk.content.Intent;
 import ohos.agp.components.*;
 import ohos.agp.utils.Color;
+import ohos.agp.utils.LayoutAlignment;
 import ohos.agp.window.dialog.ToastDialog;
 import ohos.data.dataability.DataAbilityPredicates;
 import ohos.data.rdb.ValuesBucket;
@@ -97,7 +98,7 @@ public class AddBookSlice extends AbilitySlice {
         values.putString("category", record.getCategory());
         try{
             int result = dataAbilityHelper.insert(uri, values);
-            new ToastDialog(this).setText("插入成功！" ).show();
+            new ToastDialog(this).setText("插入成功！" ).setAlignment(LayoutAlignment.CENTER).show();
         }catch(DataAbilityRemoteException e){
             new ToastDialog(this).setText("插入失败！" ).show();
             e.printStackTrace();
